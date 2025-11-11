@@ -1,0 +1,30 @@
+{
+  "name": "@ai-frontend/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": {
+      "import": "./dist/styles.css",
+      "types": "./dist/styles.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc && tsc -p tsconfig.css.json"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "@radix-ui/react-button": "^1.0.4",
+    "@radix-ui/react-card": "^1.0.2",
+    "@radix-ui/react-slot": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "typescript": "^5.0.0"
+  }
+}

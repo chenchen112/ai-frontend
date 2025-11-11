@@ -1,0 +1,37 @@
+{
+  "name": "ai-frontend-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "install": "pnpm install",
+    "dev": "pnpm -F sudoku-game dev",
+    "build": "pnpm -F sudoku-game build",
+    "lint": "eslint . --ext ts,tsx",
+    "prettier": "prettier --check .",
+    "stylelint": "stylelint \"**/*.{css,scss,tsx}\"",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-airbnb": "^19.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
+    "eslint-plugin-react": "^7.0.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.0.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-prettier": "^9.0.0",
+    "stylelint-config-standard": "^34.0.0",
+    "typescript": "^5.0.0"
+  }
+}
