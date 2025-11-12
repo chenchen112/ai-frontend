@@ -5,7 +5,6 @@
     "packages/*"
   ],
   "scripts": {
-    "install": "pnpm install",
     "dev": "pnpm -F sudoku-game dev",
     "build": "pnpm -F sudoku-game build",
     "lint": "eslint . --ext ts,tsx",

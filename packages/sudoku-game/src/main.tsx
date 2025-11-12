@@ -5,7 +5,6 @@ import App from './App';
 import HomePage from './pages/HomePage';
 import GamePage from './pages/GamePage';
 import './index.css';
-import '@ai-frontend/ui/styles';
 
 const router = createBrowserRouter([
   {

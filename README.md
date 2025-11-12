@@ -22,7 +22,6 @@ ai-frontend/
 ├── packages/
 │   ├── utils/           # 通用工具函数
 │   ├── hooks/           # React hooks 集合
-│   ├── ui/              # UI 组件库
 │   └── sudoku-game/     # 主应用 - 数独游戏
 ├── .eslintrc.json       # ESLint 配置
 ├── .prettierrc.json     # Prettier 配置
@@ -84,10 +83,6 @@ pnpm stylelint
 - 响应式设计
 
 ## 开发说明
-
-### 添加新组件
-
-在 `packages/ui/src/components` 中创建新组件，并在 `packages/ui/src/index.ts` 中导出。
 
 ### 添加新工具函数
 
