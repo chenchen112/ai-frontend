@@ -5,11 +5,11 @@
         <span>数据看板</span>
       </div>
       <div class="content">
-        <el-row :gutter="20" style="margin-bottom: 20px;">
+        <el-row :gutter="20" style="margin-bottom: 20px">
           <el-col :span="6">
             <el-card shadow="hover" class="stat-card">
-              <div class="stat-icon" style="background: #409EFF;">
-                <i class="el-icon-user"></i>
+              <div class="stat-icon" style="background: #409eff">
+                <i class="el-icon-user"/>
               </div>
               <div class="stat-info">
                 <div class="stat-value">{{ statistics.totalUsers }}</div>
@@ -19,8 +19,8 @@
           </el-col>
           <el-col :span="6">
             <el-card shadow="hover" class="stat-card">
-              <div class="stat-icon" style="background: #67C23A;">
-                <i class="el-icon-bag"></i>
+              <div class="stat-icon" style="background: #67c23a">
+                <i class="el-icon-bag"/>
               </div>
               <div class="stat-info">
                 <div class="stat-value">{{ statistics.totalOrders }}</div>
@@ -30,8 +30,8 @@
           </el-col>
           <el-col :span="6">
             <el-card shadow="hover" class="stat-card">
-              <div class="stat-icon" style="background: #F56C6C;">
-                <i class="el-icon-money"></i>
+              <div class="stat-icon" style="background: #f56c6c">
+                <i class="el-icon-money"/>
               </div>
               <div class="stat-info">
                 <div class="stat-value">¥{{ statistics.totalRevenue }}</div>
@@ -41,8 +41,8 @@
           </el-col>
           <el-col :span="6">
             <el-card shadow="hover" class="stat-card">
-              <div class="stat-icon" style="background: #E6A23C;">
-                <i class="el-icon-goods"></i>
+              <div class="stat-icon" style="background: #e6a23c">
+                <i class="el-icon-goods"/>
               </div>
               <div class="stat-info">
                 <div class="stat-value">{{ statistics.totalProducts }}</div>
@@ -51,7 +51,7 @@
             </el-card>
           </el-col>
         </el-row>
-        
+
         <el-row :gutter="20">
           <el-col :span="12">
             <el-card shadow="hover" class="chart-card">
@@ -60,9 +60,9 @@
               </div>
               <div class="chart-content">
                 <el-table :data="orderTrend" style="width: 100%">
-                  <el-table-column prop="date" label="日期" width="100"></el-table-column>
-                  <el-table-column prop="orders" label="订单数" width="100"></el-table-column>
-                  <el-table-column prop="amount" label="金额" width="120"></el-table-column>
+                  <el-table-column prop="date" label="日期" width="100"/>
+                  <el-table-column prop="orders" label="订单数" width="100"/>
+                  <el-table-column prop="amount" label="金额" width="120"/>
                 </el-table>
               </div>
             </el-card>
@@ -74,20 +74,18 @@
               </div>
               <div class="chart-content">
                 <el-table :data="categoryDistribution" style="width: 100%">
-                  <el-table-column prop="category" label="分类" width="120"></el-table-column>
-                  <el-table-column prop="count" label="数量" width="100"></el-table-column>
+                  <el-table-column prop="category" label="分类" width="120"/>
+                  <el-table-column prop="count" label="数量" width="100"/>
                   <el-table-column prop="percentage" label="占比" width="100">
-                    <template #default="scope">
-                      {{ scope.row.percentage }}%
-                    </template>
+                    <template #default="scope"> {{ scope.row.percentage }}% </template>
                   </el-table-column>
                 </el-table>
               </div>
             </el-card>
           </el-col>
         </el-row>
-        
-        <el-row :gutter="20" style="margin-top: 20px;">
+
+        <el-row :gutter="20" style="margin-top: 20px">
           <el-col :span="24">
             <el-card shadow="hover" class="chart-card">
               <div slot="header" class="chart-header">
@@ -95,13 +93,11 @@
               </div>
               <div class="chart-content">
                 <el-table :data="recentOrders" style="width: 100%">
-                  <el-table-column prop="id" label="订单号" width="150"></el-table-column>
-                  <el-table-column prop="customerName" label="客户名称" width="150"></el-table-column>
-                  <el-table-column prop="productName" label="商品名称"></el-table-column>
+                  <el-table-column prop="id" label="订单号" width="150"/>
+                  <el-table-column prop="customerName" label="客户名称" width="150"/>
+                  <el-table-column prop="productName" label="商品名称"/>
                   <el-table-column prop="amount" label="金额" width="120">
-                    <template #default="scope">
-                      ¥{{ scope.row.amount.toFixed(2) }}
-                    </template>
+                    <template #default="scope"> ¥{{ scope.row.amount.toFixed(2) }} </template>
                   </el-table-column>
                   <el-table-column prop="status" label="状态" width="100">
                     <template #default="scope">
@@ -129,7 +125,7 @@ export default {
         totalUsers: 1234,
         totalOrders: 5678,
         totalRevenue: 98765.43,
-        totalProducts: 234
+        totalProducts: 234,
       },
       orderTrend: [
         { date: '周一', orders: 120, amount: 25000 },
@@ -138,23 +134,53 @@ export default {
         { date: '周四', orders: 160, amount: 35000 },
         { date: '周五', orders: 200, amount: 42000 },
         { date: '周六', orders: 220, amount: 48000 },
-        { date: '周日', orders: 190, amount: 40000 }
+        { date: '周日', orders: 190, amount: 40000 },
       ],
       categoryDistribution: [
         { category: '电子产品', count: 45, percentage: 35 },
         { category: '服装', count: 30, percentage: 25 },
         { category: '食品', count: 25, percentage: 20 },
         { category: '图书', count: 20, percentage: 15 },
-        { category: '其他', count: 10, percentage: 5 }
+        { category: '其他', count: 10, percentage: 5 },
       ],
       recentOrders: [
-        { id: 'ORD2024010001', customerName: '张三', productName: 'iPhone 15', amount: 6999.00, status: 'paid' },
-        { id: 'ORD2024010002', customerName: '李四', productName: 'MacBook Pro', amount: 15999.00, status: 'shipped' },
-        { id: 'ORD2024010003', customerName: '王五', productName: 'iPad Air', amount: 8998.00, status: 'pending' },
-        { id: 'ORD2024010004', customerName: '赵六', productName: 'AirPods Pro', amount: 1999.00, status: 'completed' },
-        { id: 'ORD2024010005', customerName: '孙七', productName: 'Apple Watch', amount: 3199.00, status: 'cancelled' }
-      ]
-    }
+        {
+          id: 'ORD2024010001',
+          customerName: '张三',
+          productName: 'iPhone 15',
+          amount: 6999.0,
+          status: 'paid',
+        },
+        {
+          id: 'ORD2024010002',
+          customerName: '李四',
+          productName: 'MacBook Pro',
+          amount: 15999.0,
+          status: 'shipped',
+        },
+        {
+          id: 'ORD2024010003',
+          customerName: '王五',
+          productName: 'iPad Air',
+          amount: 8998.0,
+          status: 'pending',
+        },
+        {
+          id: 'ORD2024010004',
+          customerName: '赵六',
+          productName: 'AirPods Pro',
+          amount: 1999.0,
+          status: 'completed',
+        },
+        {
+          id: 'ORD2024010005',
+          customerName: '孙七',
+          productName: 'Apple Watch',
+          amount: 3199.0,
+          status: 'cancelled',
+        },
+      ],
+    };
   },
   methods: {
     getStatusType(status) {
@@ -163,9 +189,9 @@ export default {
         paid: 'success',
         shipped: 'primary',
         completed: 'success',
-        cancelled: 'info'
-      }
-      return types[status] || 'info'
+        cancelled: 'info',
+      };
+      return types[status] || 'info';
     },
     getStatusText(status) {
       const texts = {
@@ -173,12 +199,12 @@ export default {
         paid: '已付款',
         shipped: '已发货',
         completed: '已完成',
-        cancelled: '已取消'
-      }
-      return texts[status] || status
-    }
-  }
-}
+        cancelled: '已取消',
+      };
+      return texts[status] || status;
+    },
+  },
+};
 </script>
 
 <style scoped>

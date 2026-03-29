@@ -1,34 +1,28 @@
 <template>
   <div id="app">
-    <el-container style="height: 100vh;">
+    <el-container style="height: 100vh">
       <!-- 侧边栏菜单 -->
-      <el-aside width="200px" style="background-color: #545c64;">
+      <el-aside width="200px" style="background-color: #545c64">
         <div class="menu-header">
-          <h3 style="color: white; text-align: center; padding: 20px 0; margin: 0;">
-            菜单多开示例
-          </h3>
+          <h3 style="color: white; text-align: center; padding: 20px 0; margin: 0">菜单多开示例</h3>
         </div>
-        <el-menu
-          :default-openeds="['1', '2']"
-          class="el-menu-vertical-demo"
-          @select="handleMenuSelect"
-        >
+        <el-menu :default-openeds="['1', '2']" class="el-menu-vertical-demo" @select="handleMenuSelect">
           <!-- 系统管理 -->
           <el-submenu index="1">
             <template slot="title">
-              <i class="el-icon-setting"></i>
+              <i class="el-icon-setting"/>
               <span>系统管理</span>
             </template>
             <el-menu-item index="/user-management">
-              <i class="el-icon-user"></i>
+              <i class="el-icon-user"/>
               <span>用户管理</span>
             </el-menu-item>
             <el-menu-item index="/role-management">
-              <i class="el-icon-key"></i>
+              <i class="el-icon-key"/>
               <span>角色管理</span>
             </el-menu-item>
             <el-menu-item index="/permission-management">
-              <i class="el-icon-lock"></i>
+              <i class="el-icon-lock"/>
               <span>权限管理</span>
             </el-menu-item>
           </el-submenu>
@@ -36,15 +30,15 @@
           <!-- 业务管理 -->
           <el-submenu index="2">
             <template slot="title">
-              <i class="el-icon-office"></i>
+              <i class="el-icon-office"/>
               <span>业务管理</span>
             </template>
             <el-menu-item index="/order-management">
-              <i class="el-icon-shopping-cart-2"></i>
+              <i class="el-icon-shopping-cart-2"/>
               <span>订单管理</span>
             </el-menu-item>
             <el-menu-item index="/product-management">
-              <i class="el-icon-goods"></i>
+              <i class="el-icon-goods"/>
               <span>商品管理</span>
             </el-menu-item>
           </el-submenu>
@@ -52,15 +46,15 @@
           <!-- 数据统计 -->
           <el-submenu index="3">
             <template slot="title">
-              <i class="el-icon-data-line"></i>
+              <i class="el-icon-data-line"/>
               <span>数据统计</span>
             </template>
             <el-menu-item index="/statistics-dashboard">
-              <i class="el-icon-s-data"></i>
+              <i class="el-icon-s-data"/>
               <span>数据看板</span>
             </el-menu-item>
             <el-menu-item index="/report-management">
-              <i class="el-icon-document"></i>
+              <i class="el-icon-document"/>
               <span>报表管理</span>
             </el-menu-item>
           </el-submenu>
@@ -70,7 +64,7 @@
       <!-- 主内容区 -->
       <el-container>
         <!-- 顶部导航 -->
-        <el-header style="background-color: #fff; padding: 0; box-shadow: 0 1px 4px rgba(0,21,41,.08);">
+        <el-header style="background-color: #fff; padding: 0; box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08)">
           <div class="top-nav">
             <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
               <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
@@ -79,9 +73,9 @@
             <div class="user-info">
               <el-dropdown>
                 <span class="el-dropdown-link">
-                  <i class="el-icon-user"></i>
+                  <i class="el-icon-user"/>
                   管理员
-                  <i class="el-icon-arrow-down el-icon--right"></i>
+                  <i class="el-icon-arrow-down el-icon--right"/>
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item>个人中心</el-dropdown-item>
@@ -93,7 +87,7 @@
         </el-header>
 
         <!-- 内容区域 -->
-        <el-main style="padding: 10px; background-color: #f3f4f5;">
+        <el-main style="padding: 10px; background-color: #f3f4f5">
           <!-- 标签页导航 -->
           <el-tabs
             v-model="activeTab"
@@ -109,13 +103,13 @@
               :name="tab.path"
               :closable="tab.path !== '/'"
             >
-              <div style="display: none;"></div>
+              <div style="display: none"/>
             </el-tab-pane>
           </el-tabs>
 
           <!-- 路由视图 -->
           <keep-alive :include="cachedViews">
-            <router-view :key="routerKey" style="margin-top: 10px;"></router-view>
+            <router-view :key="routerKey" style="margin-top: 10px"/>
           </keep-alive>
         </el-main>
       </el-container>
@@ -133,102 +127,102 @@ export default {
         {
           path: '/',
           title: '首页',
-          name: '首页'
-        }
+          name: '首页',
+        },
       ],
-      cachedViews: ['Home']
-    }
+      cachedViews: ['Home'],
+    };
   },
   computed: {
     routerKey() {
-      return this.$route.fullPath
+      return this.$route.fullPath;
     },
     breadcrumbs() {
-      const breadcrumbs = []
-      this.openedTabs.forEach(tab => {
+      const breadcrumbs = [];
+      this.openedTabs.forEach((tab) => {
         if (tab.path !== '/') {
           breadcrumbs.push({
             path: tab.path,
-            name: tab.title
-          })
+            name: tab.title,
+          });
         }
-      })
-      return breadcrumbs
-    }
+      });
+      return breadcrumbs;
+    },
   },
   methods: {
     handleMenuSelect(index) {
       // 添加标签页
-      this.addTab(index)
+      this.addTab(index);
       // 路由跳转
-      this.$router.push(index)
+      this.$router.push(index);
     },
     addTab(path) {
       // 检查标签是否已存在
-      const exists = this.openedTabs.some(tab => tab.path === path)
+      const exists = this.openedTabs.some((tab) => tab.path === path);
       if (!exists) {
         // 获取路由名称
-        const route = this.$router.options.routes.find(r => r.path === path)
-        let title = path.split('/').filter(Boolean).join(' - ')
-        
+        const route = this.$router.options.routes.find((r) => r.path === path);
+        let title = path.split('/').filter(Boolean).join(' - ');
+
         if (route && route.meta && route.meta.title) {
-          title = route.meta.title
+          title = route.meta.title;
         }
-        
+
         this.openedTabs.push({
           path,
           title,
-          name: path.split('/').filter(Boolean).pop() || '首页'
-        })
-        
+          name: path.split('/').filter(Boolean).pop() || '首页',
+        });
+
         // 添加到缓存视图
-        const viewName = path.split('/').filter(Boolean).join('-') || 'Home'
+        const viewName = path.split('/').filter(Boolean).join('-') || 'Home';
         if (!this.cachedViews.includes(viewName)) {
-          this.cachedViews.push(viewName)
+          this.cachedViews.push(viewName);
         }
       }
     },
     handleTabClick(tab) {
-      this.$router.push(tab.name)
+      this.$router.push(tab.name);
     },
     handleTabRemove(targetName) {
-      if (targetName === '/') return
-      
-      const tabs = this.openedTabs
-      let activeName = this.activeTab
-      
+      if (targetName === '/') return;
+
+      const tabs = this.openedTabs;
+      let activeName = this.activeTab;
+
       if (activeName === targetName) {
         tabs.forEach((tab, index) => {
           if (tab.path === targetName) {
-            const nextTab = tabs[index + 1] || tabs[index - 1]
+            const nextTab = tabs[index + 1] || tabs[index - 1];
             if (nextTab) {
-              activeName = nextTab.path
-              this.$router.push(activeName)
+              activeName = nextTab.path;
+              this.$router.push(activeName);
             }
           }
-        })
+        });
       }
-      
-      this.openedTabs = tabs.filter(tab => tab.path !== targetName)
-      
+
+      this.openedTabs = tabs.filter((tab) => tab.path !== targetName);
+
       // 从缓存中移除
-      const viewName = targetName.split('/').filter(Boolean).join('-')
-      this.cachedViews = this.cachedViews.filter(view => view !== viewName)
+      const viewName = targetName.split('/').filter(Boolean).join('-');
+      this.cachedViews = this.cachedViews.filter((view) => view !== viewName);
     },
     logout() {
-      this.$message.success('退出登录成功')
-      this.openedTabs = [{ path: '/', title: '首页', name: '首页' }]
-      this.activeTab = '/'
-      this.$router.push('/')
-    }
+      this.$message.success('退出登录成功');
+      this.openedTabs = [{ path: '/', title: '首页', name: '首页' }];
+      this.activeTab = '/';
+      this.$router.push('/');
+    },
   },
   watch: {
-    '$route'(to) {
+    $route(to) {
       // 路由变化时更新 activeTab
-      this.activeTab = to.path
-    }
-  }
-}
+      this.activeTab = to.path;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -285,4 +279,3 @@ export default {
   min-height: calc(100vh - 60px);
 }
 </style>
-
