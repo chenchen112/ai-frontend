@@ -1,17 +1,25 @@
 {
   "root": true,
-  "extends": [
-    "airbnb",
-    "airbnb-typescript",
-    "airbnb/hooks",
-    "prettier"
-  ],
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "prettier"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "import/prefer-default-export": "off"
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.config.*",
+          "**/.storybook/**/*",
+          "**/__tests__/**",
+          "**/*.test.*",
+          "**/setupTests.ts"
+        ]
+      }
+    ]
   }
 }
